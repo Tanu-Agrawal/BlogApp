@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<style>
+
+  h1{
+    color:#000000;
+  }
+  body{
+    background-image:url(http://zionsvillelibrary.org/wp-content/uploads/2017/11/Library-Events.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+  h1:hover{
+    color:#35bfbf;
+    transform:scale(1.6);
+    cursor:pointer;
+  }
+</style>
+
+{% endblock %}
+{% block content %}
+      <body>
+        <div class="container" style="margin-top:200px; margin-left:240px;">
+          <h1 id="hh">You Have The Power To Change Anything.</h1>
+            <a href="{{ url_for('home')}}" class="btn btn-success btn-lg active" role="button" aria-pressed="true" style="margin-left:170px; margin-top:20px;">Write your Blog</a>
+        </div>
+      </body>
+{% endblock content %}

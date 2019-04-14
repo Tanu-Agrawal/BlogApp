@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+  <body style="background-image:url(https://www.chargebee.com/blog/blog/images/wp-content/uploads/2013/01/Sign-up-300x199.jpg); background-repeat:no-repeat; background-size:cover;">
+      <div class="content-section" style="margin-left:330px; margin-top:50px;">
+        <form action="#" method="post">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+              <legend class="border-bottom mb-4" style="text-align:center; color:gray;"><span><em>SignIn Here<em></span></legend>
+              <div class="form-group"><strong>
+                {{ form.username.label(class="form-control-label") }}</strong>
+
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                {% else %}
+                  {{ form.username(class="form-control form-control-lg") }}
+                {% endif %}
+              </div>
+              <div class="form-group"><strong>
+                {{ form.email.label(class="form-control-label") }}</strong>
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                {% else %}
+                  {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+              </div>
+              <div class="form-group"><strong>
+                {{ form.password.label(class="form-control-label") }}</strong>
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                {% else %}
+                  {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+              </div>
+              <div class="form-check">
+                {{ form.remember(class="form-check-input") }}
+                {{ form.remember.label(class="form-check-label") }}
+              </div>
+            </fieldset>
+            <div class="form-group">
+              {{ form.submit(class="btn btn-info") }}
+            </div>
+            <small class="text-muted ml-2">
+              <a href="#">Forgot password?</a>
+            </small>
+        </form>
+      </div>
+      <div class="border-top pt-1  pb-2" style="margin-left:350px;">
+        <small class="text-muted">
+          Haven't registered yet?
+          <a href="{{ url_for('register') }}" class="ml-2"><b>Sign Up</b></a>
+          </small>
+      </div>
+</body>
+{% endblock content %}
